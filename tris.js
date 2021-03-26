@@ -7,10 +7,13 @@ function swap (tableau, i , j){
 }
 function tri_fusion (tableau) {
     const n = tableau.length
+    const middle = Math.floor(n/2);
+    const left = tableau.slice(0, middle)
+    const right = tableau.slice(middle, n)
     if (n <= 1) { //n correspond à l'index max de mon tableau
         return tableau;
     } else{
-        return fusion(tri_fusion(tableau.slice(0, n/2)), tri_fusion(tableau.slice(n/2, n)));
+        return fusion(tri_fusion(left), tri_fusion(right));
     }
 }
 
